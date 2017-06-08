@@ -1,0 +1,20 @@
+<a data-toggle="modal" data-target="#myModal" ><span class="glyphicon glyphicon-paperclip">&nbsp;</span></a>
+<!--<button type="button" class="btn btn-primary" (click)="staticModal.show()">Static modal</button>-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Note</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        
+        <textarea rows=4 class="form-control" placeholder="abstract..." ng-model="invoice.note"></textarea>
+
+        <button   type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+        <button type="button" class="btn btn-danger btn-xs" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        
+      </div>
+    </div>
+  </div>
+</div>

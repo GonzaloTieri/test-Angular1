@@ -1,0 +1,92 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body ng-controller="InvoiceController">
+<div class="container">
+    
+
+
+<h1>Transaction Manager</h1>
+<div class="border">
+  <fieldset class="scheduler-border">
+    <legend class="scheduler-border">Search Filter Actions</legend>
+    
+    <div class="row">
+      <div class="col-xs-2 form-group">
+        <label>Search By:</label>
+        <select class="form-control" ng-model="searchBySelected">
+          <option value="Name">Name</option>
+          <option value="Invoice">Invoice</option>
+        </select>
+      </div>
+      <div class="col-xs-2 form-group">
+        <label>In Invoice Status</label>
+          <select class="form-control" ng-model="invoiceStatusSelected">
+            <option value="Outstanding">Outstanding</option>
+            <option value="Paid">Paid</option>
+        </select>
+      </div>
+      <div class="col-xs-2 form-group">
+        <label>Search Text</label>
+        <input class="form-control" type="text" ngModel="searchText">
+      </div>
+    </div>
+    
+  </fieldset>
+  <p class="bg-info ">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"><a> Add a Pre-Capture (Pre-Copay, Up-fromt Payments</a></span>
+      <span class="glyphicon glyphicon-usd" aria-hidden="true"><a> Refaunds {{invoiceStatusSelected}}</a></span>
+  </p>
+</div>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Transaction Type</th>
+      <th>Patient Name</th>
+      <th>Invoice #</th>
+      <th>Invoice Date</th>
+      <th>Balance</th>
+      <th>Amount</th>
+      <th>Method</th>
+      <th>Data Recive</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="invoice in invoices 
+                    | filter: { transactionType:invoiceStatusSelected }
+                    | invoiceNameOrIdFilter:invoices " >
+
+      <td> {{invoice.transactionType}} </td>
+      <td>{{invoice.patientName}}</td>
+      <td>{{invoice.invoiceNumber}}</td>
+      <td>{{invoice.date}}</td>
+      <td>{{invoice.balance}}</td>
+      <td><invoice-amount [invoice]="invoice" ></invoice-amount></td>
+      <td>{{invoice.method}}</td>
+      <td>{{invoice.dateReceived}}</td>
+      <td><invoice-note invoice="invoice"></invoice-note></td>
+      <td><button ng-if="invoice.transactionType == 'Outstanding'" ng-click="invoicePost(invoice)" type="button" class="btn btn-primary btn-sm">POST</button></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>

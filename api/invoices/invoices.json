@@ -1,0 +1,50 @@
+[
+  {
+    "invoiceId": 1,
+    "transactionType": "Paid",
+    "patientName": "John",
+    "invoiceNumber": 88123,
+    "date": "01/27/2017",
+    "balance": 100,
+    "amount": 100,
+    "method": "check",
+    "dateReceived": "2/10/2017",
+    "note": "this is a note"
+  },
+  {
+    "invoiceId": 2,
+    "transactionType": "Outstanding",
+    "patientName": "John",
+    "invoiceNumber": 8814,
+    "date": "01/27/2017",
+    "balance": 100,
+    "amount": 100,
+    "method": "check",
+    "dateReceived": "2/10/2017",
+    "note": "this is a note"
+  },
+   {
+    "invoiceId": 3,
+    "transactionType": "Paid",
+    "patientName": "Petter",
+    "invoiceNumber": 8845,
+    "date": "01/27/2017",
+    "balance": 100,
+    "amount": 100,
+    "method": "check",
+    "dateReceived": "2/10/2017",
+    "note": "this is a note"
+  },
+   {
+    "invoiceId": 4,
+    "transactionType": "Outstanding",
+    "patientName": "Lana",
+    "invoiceNumber": 88456,
+    "date": "01/27/2017",
+    "balance": 100,
+    "amount": 100,
+    "method": "check",
+    "dateReceived": "2/10/2017",
+    "note": "this is a note"
+  }
+]
